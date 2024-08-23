@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/app.dart';
 import 'package:instagram_clone/features/media/screens/comment/widgets/comment.dart';
 
 class LCommentPage extends StatelessWidget {

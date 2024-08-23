@@ -15,33 +15,57 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(LSizes.defaultSpace),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      bottomSheet: Container(
+        width: double.infinity,
+        height: 60,
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: Colors.grey,
+              width: .7,
+            ),
+          ),
+          color: Colors.black
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            /// -- App Logo
-            const Expanded(
-              flex: 1,
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: SizedBox(
-                  width: 180.0,
-                  child: Image(
-                    image: AssetImage(LImages.darkAppLogo),
-                  ),
+            const Text(
+              "Already have an account?",
+              style: TextStyle(color: Colors.grey),
+            ),
+            TextButton(
+                onPressed: () => Get.to(() => const LoginScreen()),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                      color: Colors.blue, fontWeight: FontWeight.bold),
+                ))
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Padding(
+          padding: const EdgeInsets.all(LSizes.defaultSpace),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const SizedBox(height: LSizes.spaceBtwSections * 3),
+              /// -- App Logo
+              const SizedBox(
+                width: 180.0,
+                child: Image(
+                  image: AssetImage(LImages.darkAppLogo),
                 ),
               ),
-            ),
-            const SizedBox(height: LSizes.spaceBtwSections),
-
-            /// -- Login Form
-            Expanded(
-              flex: 3,
-              child: Form(
+              const SizedBox(height: LSizes.spaceBtwSections),
+          
+              /// -- Signup Form
+              Form(
                 child: Column(
                   children: [
-                    /// Login Form
+                    /// Signup Form
                     Column(
                       children: [
                         /// -- Image
@@ -50,7 +74,7 @@ class SignupScreen extends StatelessWidget {
                             LCircularImage(
                                 width: 120,
                                 height: 120,
-                                image: LImages.postImage1),
+                                image: LImages.profileImage),
                             Positioned(
                               bottom: 8,
                               right: 8,
@@ -66,7 +90,7 @@ class SignupScreen extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: LSizes.spaceBtwItems),
-
+          
                         /// -- Name
                         TextFormField(
                           decoration: const InputDecoration(
@@ -74,7 +98,7 @@ class SignupScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: LSizes.spaceBtwItems),
-
+          
                         /// -- Username
                         TextFormField(
                           decoration: const InputDecoration(
@@ -82,7 +106,7 @@ class SignupScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: LSizes.spaceBtwItems),
-
+          
                         /// -- Email
                         TextFormField(
                           decoration: const InputDecoration(
@@ -90,69 +114,31 @@ class SignupScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: LSizes.spaceBtwItems),
-
+          
                         /// -- Password
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Password',
                               suffixIcon: Icon(Iconsax.eye_slash)),
                         ),
-                        const SizedBox(height: LSizes.spaceBtwItems),
-
-                        /// -- Forget Password
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'Forgotten password?',
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ],
-                        ),
                         const SizedBox(height: LSizes.spaceBtwSections),
-
-                        /// -- Login Button
+          
+                        /// -- Signup Button
                         SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
                                 onPressed: () =>
                                     Get.to(() => const NavigationMenu()),
-                                child: const Text('Log In'))),
+                                child: const Text('Signup'))),
                       ],
                     ),
                   ],
                 ),
               ),
-            ),
-            const SizedBox(height: LSizes.spaceBtwSections),
+              const SizedBox(height: LSizes.spaceBtwSections * 2),
 
-            /// Sign up Form Button
-            Column(
-              children: [
-                const Divider(
-                  thickness: 0.5,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Already have an account?",
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    TextButton(
-                        onPressed: () => Get.to(() => const LoginScreen()),
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(
-                              color: Colors.blue, fontWeight: FontWeight.bold),
-                        ))
-                  ],
-                )
-              ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

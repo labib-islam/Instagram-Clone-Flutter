@@ -1,16 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/common/widgets/custom_shapes/circular_container.dart';
 import 'package:instagram_clone/features/media/controllers/image_controller.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/features/media/screens/comment/comment_page.dart';
-import 'package:instagram_clone/features/media/screens/reel/reel.dart';
 import 'package:instagram_clone/utils/constants/sizes.dart';
 import 'package:readmore/readmore.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../images/circular_image.dart';
-import 'comment_box.dart';
 
 class LPostCard extends StatelessWidget {
   const LPostCard({

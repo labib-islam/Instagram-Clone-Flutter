@@ -12,6 +12,35 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomSheet: Container(
+        width: double.infinity,
+        height: 60,
+        decoration: const BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                color: Colors.grey,
+                width: .7,
+              ),
+            ),
+            color: Colors.black
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              "Don't have an account?",
+              style: TextStyle(color: Colors.grey),
+            ),
+            TextButton(
+                onPressed: () => Get.to(() => const SignupScreen()),
+                child: const Text(
+                  'Signup',
+                  style: TextStyle(
+                      color: Colors.blue, fontWeight: FontWeight.bold),
+                ))
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(LSizes.defaultSpace),
         child: Column(
@@ -75,23 +104,6 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-            const SizedBox(height: LSizes.spaceBtwSections),
-
-            /// Sign up Form Button
-            Column(
-              children: [
-                const Divider(
-                  thickness: 0.5,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Don't have an account?", style: TextStyle(color: Colors.grey),),
-                    TextButton(onPressed: () => Get.to(() => const SignupScreen()), child: const Text('Sign up', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),))
-                  ],
-                )
-              ],
             ),
           ],
         ),

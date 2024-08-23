@@ -1,9 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:instagram_clone/common/widgets/images/circular_image.dart';
 import 'package:instagram_clone/utils/constants/colors.dart';
-import 'package:instagram_clone/utils/constants/image_strings.dart';
 
 import '../../../features/media/screens/comment/widgets/comment.dart';
 
