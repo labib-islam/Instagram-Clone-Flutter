@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:instagram_clone/features/authentication/screens/signup/signup.dart';
 import 'package:instagram_clone/navigation_menu.dart';
 import 'package:instagram_clone/utils/constants/image_strings.dart';
 import 'package:instagram_clone/utils/constants/sizes.dart';
@@ -87,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("Don't have an account?", style: TextStyle(color: Colors.grey),),
-                    TextButton(onPressed: (){}, child: const Text('Sign up', style: TextStyle(color: Colors.blue),))
+                    TextButton(onPressed: () => Get.to(() => const SignupScreen()), child: const Text('Sign up', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),))
                   ],
                 )
               ],

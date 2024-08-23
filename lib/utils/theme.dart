@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/utils/custom_themes/appbar_theme.dart';
 import 'package:instagram_clone/utils/custom_themes/elevated_button_theme.dart';
 import 'package:instagram_clone/utils/custom_themes/text_field_theme.dart';
+import 'package:instagram_clone/utils/custom_themes/text_theme.dart';
 
 class LAppTheme {
   LAppTheme._();
@@ -13,6 +14,7 @@ class LAppTheme {
     primaryColor: Colors.blue,
     primarySwatch: Colors.blue,
     appBarTheme: LAppBarTheme.darkAppBartheme,
+    textTheme: LTextTheme.darkTextTheme,
     scaffoldBackgroundColor: Colors.black,
     inputDecorationTheme: LTextFormFieldTheme.darkInputDecorationTheme,
     elevatedButtonTheme: LElevatedButtonTheme.darkElevatedButtonTheme
