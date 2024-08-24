@@ -1,7 +1,8 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/utils/constants/sizes.dart';
-
 
 class LCircularImage extends StatelessWidget {
   const LCircularImage({
@@ -12,12 +13,14 @@ class LCircularImage extends StatelessWidget {
     this.fit = BoxFit.cover,
     required this.image,
     this.isNetworkImage = false,
+    this.isFileImage = false,
   });
 
   final double width, height, padding;
   final BoxFit? fit;
-  final String image;
+  final dynamic image;
   final bool isNetworkImage;
+  final bool isFileImage;
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +36,12 @@ class LCircularImage extends StatelessWidget {
                 fit: fit,
                 imageUrl: image,
               )
-            : Image(
-                fit: fit,
-                image: AssetImage(image),
-              ),
+            : isFileImage
+                ? Image(fit: fit, image: FileImage(File(image)))
+                : Image(
+                    fit: fit,
+                    image: AssetImage(image),
+                  ),
       ),
     );
   }
