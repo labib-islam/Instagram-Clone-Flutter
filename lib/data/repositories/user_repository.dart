@@ -7,10 +7,26 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram_clone/features/authentication/models/user_model.dart';
 
+import 'authentication_repository.dart';
+
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
 
   final FirebaseFirestore _db = FirebaseFirestore.instance;
+
+  Future<UserModel> fetchUserDetails() async {
+    try {
+      final documentSnapshot = await _db.collection('Users').doc(
+          AuthenticationRepository.instance.authUser?.uid).get();
+      if (documentSnapshot.exists) {
+        return UserModel.fromSnapshot(documentSnapshot);
+      } else {
+        return UserModel.empty();
+      }
+    } catch (e) {
+      throw e.toString();
+    }
+  }
 
   Future<void> saveUserRecord(UserModel user) async {
     try {

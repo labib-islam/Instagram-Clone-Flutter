@@ -15,14 +15,14 @@ class UserModel {
     required this.username,
     required this.email,
     required this.name,
-    this.imageUrl = '',
+    required this.imageUrl,
     this.followers,
     this.following,
   });
 
   /// Empty
   static UserModel empty() =>
-      UserModel(id: '', username: '', email: '', name: '');
+      UserModel(id: '', username: '', email: '', name: '', imageUrl: '');
 
   /// Convert model to JSON structure for storing data in Firebase.
   Map<String, dynamic> toJson() {
@@ -46,8 +46,8 @@ class UserModel {
         email: data['Email'] ?? '',
         name: data['Name'] ?? '',
         imageUrl: data['ImageUrl'] ?? '',
-        followers: data['Followers'] ?? [],
-        following: data['Following'] ?? [],
+        followers: List<String>.from(data['Followers']),
+        following: List<String>.from(data['Following']),
       );
     } else {
       return UserModel.empty();

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:instagram_clone/features/personalization/controllers/user_controller.dart';
 import 'package:instagram_clone/utils/constants/image_strings.dart';
 import 'package:instagram_clone/utils/constants/sizes.dart';
-
+import 'package:get/get.dart';
 import '../../../../common/widgets/posts/post_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,

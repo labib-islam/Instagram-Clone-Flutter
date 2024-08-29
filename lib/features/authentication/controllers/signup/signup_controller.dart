@@ -13,6 +13,7 @@ class SignupController extends GetxController {
 
   /// Variables
   final hidePassword = true.obs;
+  final isLoading = false.obs;
   final name = TextEditingController();
   final username = TextEditingController();
   final email = TextEditingController();
@@ -22,6 +23,7 @@ class SignupController extends GetxController {
 
   void signup() async {
     try {
+      isLoading.value = true;
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -53,6 +55,8 @@ class SignupController extends GetxController {
       print(newUser.toJson());
     } catch (e) {
       print(e.toString());
+    } finally {
+      isLoading.value = false;
     }
   }
 

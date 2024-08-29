@@ -16,6 +16,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignupController());
+
     return Scaffold(
       bottomSheet: Container(
         width: double.infinity,
@@ -36,7 +37,7 @@ class SignupScreen extends StatelessWidget {
               style: TextStyle(color: Colors.grey),
             ),
             TextButton(
-                onPressed: () => Get.to(() => const LoginScreen()),
+                onPressed: () => Get.offAll(() => const LoginScreen()),
                 child: const Text(
                   'Login',
                   style: TextStyle(
@@ -146,11 +147,13 @@ class SignupScreen extends StatelessWidget {
                         const SizedBox(height: LSizes.spaceBtwSections),
 
                         /// -- Signup Button
-                        SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                                onPressed: () => controller.signup(),
-                                child: const Text('Signup'))),
+                        Obx(
+                            () => SizedBox(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                  onPressed: () => controller.signup(),
+                                  child: controller.isLoading.value ? const CircularProgressIndicator(color: Colors.white,) : const Text('Signup'))),
+                        ),
                       ],
                     ),
                   ],
